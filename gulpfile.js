@@ -5,8 +5,12 @@ var $ = require('gulp-load-plugins')({
   }
 });
 
+gulp.task('watch', function() {
+  gulp.watch('./client/**/*.html', ['build']);
+});
+
 gulp.task('build', function() {
-  return gulp.src('./client/**/*.html')
+  return gulp.src(['./client/**/*.html', './client/**/*.css'])
     .pipe(gulp.dest('./dist/'));
 });
 
